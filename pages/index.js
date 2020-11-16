@@ -11,11 +11,11 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          welcome to alex's site
+          Welcome to Alex's Site
         </h1>
 
         <p className={styles.description}>
-          this is my dev domain now.
+          This is my domain now.
         </p>
 
         <div className={styles.grid}>
