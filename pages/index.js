@@ -15,7 +15,7 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          existance is pain.
+          this is my domain now.
         </p>
 
         <div className={styles.grid}>
