@@ -11,11 +11,11 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to Alex's Site
+          welcome to alex's site
         </h1>
 
         <p className={styles.description}>
-          This is my domain now.
+          this is my domain now.
         </p>
 
         <div className={styles.grid}>
@@ -24,7 +24,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        Powered by Alex
+        powered by alex
       </footer>
     </div>
   )
