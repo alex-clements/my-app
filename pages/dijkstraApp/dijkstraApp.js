@@ -15,8 +15,10 @@ export default class DijkstraApp extends React.Component {
       var myGraph = this.createGraph(data[0]);
       var startLocation = data[1] ? data[1][0].toString().padStart(2,"0") + data[1][1].toString().padStart(2,"0") : "0000";
       var endLocation = data[2] ? data[2][0].toString().padStart(2,"0") + data[2][1].toString().padStart(2,"0") : "1939";
-      var shortestPath = this.runDijkstra(myGraph,startLocation,endLocation);
-      this.updateGrid(data[0],shortestPath, startLocation, endLocation);
+      var solution = this.runDijkstra(myGraph,startLocation,endLocation);
+      var shortestPath = solution[0];
+      var solutionFound = solution[1];
+      solutionFound ? this.updateGrid(data[0],shortestPath, startLocation, endLocation) : null;
   }
 
   updateGrid(table, shortestPath, startLocation, endLocation) {
@@ -76,7 +78,6 @@ export default class DijkstraApp extends React.Component {
     });
 
     pq.enqueue([startNode, 0]);
-
     while (!pq.isEmpty()) {
       let shortestStep = pq.dequeue();
       let currentNode = shortestStep[0];
@@ -91,15 +92,20 @@ export default class DijkstraApp extends React.Component {
         }
       });
     }
-
     let path = [endNode];
     let lastStep = endNode;
+
+    let solutionFound = true;
 
     while (lastStep !== startNode) {
       path.unshift(backtrace[lastStep])
       lastStep = backtrace[lastStep]
+      if (lastStep == undefined) {
+        solutionFound = false;
+        break;
+      }
     }
-    return path;
+    return [path, solutionFound];
   }
 
   createGraph(table) {

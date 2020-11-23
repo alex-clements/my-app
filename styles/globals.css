@@ -94,3 +94,17 @@ a {
     background-color: #B4F8C8;
   }
 }
+
+.ui[class*="very compact"].table th {
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+}
+
+.ui[class*="very compact"].table td {
+  padding: 0.1em 0.1em;
+}
+
+table {
+  user-drag: none;
+  user-select: none;
+}
