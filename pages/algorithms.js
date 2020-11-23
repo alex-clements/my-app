@@ -21,7 +21,7 @@ export default function testPage() {
         <p className={styles.description}>
         Visualizations
         </p>
-        <TestCard pathName="dijkstraMethod" title="Dijkstra's Method" category="Path Finding Algorithms" content="Find the shortest path between two points."/>
+        <TestCard imageSource='/dijkstraImage.png' pathName="dijkstraMethod" title="Dijkstra's Method" category="Path Finding Algorithms" content="Find the shortest path between two points."/>
 
       </main>
 

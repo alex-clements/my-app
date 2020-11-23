@@ -5,6 +5,9 @@ export default class TestCard extends React.Component {
     var path = "/".concat("",this.props.pathName)
     return (
       <a className="blue ui card" href={path}>
+        <div class="image">
+          <img src={this.props.imageSource} />
+        </div>
         <div className="content">
           <div className="header">{this.props.title}</div>
           <div className="meta">
