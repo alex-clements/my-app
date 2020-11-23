@@ -1,6 +1,6 @@
 import React from 'react'
 
-export class TestCard extends React.Component {
+export default class TestCard extends React.Component {
   render() {
     var path = "/".concat("",this.props.pathName)
     return (

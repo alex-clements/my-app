@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../../styles/Home.module.css'
 
-export class DijkstraCell extends React.Component {
+export default class DijkstraCell extends React.Component {
   constructor(props) {
     super(props);
     this.handleEvent = this.handleEvent.bind(this);

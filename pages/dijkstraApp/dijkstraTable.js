@@ -1,7 +1,7 @@
 import React from 'react'
-import {DijkstraCell} from './dijkstraCell.js'
+import DijkstraCell from './dijkstraCell.js'
 
-export class DijkstraTable extends React.Component {
+export default class DijkstraTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {table: this.props.tableData, selectMethod: 'walls', startLocation: null, endLocation: null, pathPresent: this.props.pathPresent}
@@ -13,7 +13,7 @@ export class DijkstraTable extends React.Component {
     this.onWallsButton = this.onWallsButton.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     var tableRows = [];
     var tableRows2 = [];
     var rowValues = [];

@@ -1,7 +1,7 @@
 import React from 'react'
-import {DijkstraTable} from './dijkstraTable.js'
+import DijkstraTable from './dijkstraTable.js'
 
-export class DijkstraApp extends React.Component {
+export default class DijkstraApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {table: [], pathPresent: false}
