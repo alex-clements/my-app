@@ -4,7 +4,7 @@ import DijkstraCell from './dijkstraCell.js'
 export default class DijkstraTable extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {table: this.props.tableData, selectMethod: 'walls', startLocation: null, endLocation: null, pathPresent: this.props.pathPresent}
+    this.state = {table: this.props.tableData, selectMethod: 'start', startLocation: null, endLocation: null, pathPresent: this.props.pathPresent}
     this.handleCellChange = this.handleCellChange.bind(this);
     this.handleClear = this.handleClear.bind(this);
     this.onRunButton = this.onRunButton.bind(this);
@@ -20,7 +20,7 @@ export default class DijkstraTable extends React.Component {
     var i;
     var j;
     var myString;
-    for (i=0;i<20;i++) {
+    for (i=0;i<40;i++) {
       for (j=0; j<40; j++) {
         myString = i.toString().padStart(2,"0") + j.toString().padStart(2,"0")
         rowValues.push({id: myString, row: i, col: j, initClass: ''});
@@ -68,7 +68,7 @@ export default class DijkstraTable extends React.Component {
     var i;
     var j;
     var myString;
-    for (i=0;i<20;i++) {
+    for (i=0;i<40;i++) {
       for (j=0; j<40; j++) {
         myString = i.toString().padStart(2,"0") + j.toString().padStart(2,"0")
         rowValues.push({id: myString, row: i, col: j, initClass: ''});
@@ -109,11 +109,9 @@ export default class DijkstraTable extends React.Component {
         <button className="ui button" onClick={this.onWallsButton}>Draw Walls</button>
         <button className="ui primary button" onClick={this.onRunButton}>Run</button>
         <button className="ui button" value="clear" onClick={this.handleClear}>Clear</button>
-
-
     </div>
       <div className='ui horizonal divider'></div>
-      <table className='ui celled table'>
+      <table className='ui celled table very compact unstackable'>
         <tbody>
             { table }
         </tbody>

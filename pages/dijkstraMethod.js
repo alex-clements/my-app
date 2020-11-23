@@ -19,6 +19,11 @@ export default function DijkstraMethod() {
           <h1 className={styles.title}>
             Dijkstra's Algorithm.
           </h1>
+          <p className={styles.description}>
+            Set a start, end, some walls, and run.
+          </p>
+
+
         </div>
       <div className='ui horizontal divider'></div>
         <DijkstraApp />
