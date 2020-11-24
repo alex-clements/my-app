@@ -83,7 +83,7 @@ a {
 
 .ui.table tr.path,
 .ui.table td.path {
-  animation: dpath 1s forwards;
+  animation: dpath 0.5s forwards;
 }
 
 @keyframes dpath {
@@ -102,6 +102,7 @@ a {
 
 .ui[class*="very compact"].table td {
   padding: 0.1em 0.1em;
+  width: 1vw;
 }
 
 table {
