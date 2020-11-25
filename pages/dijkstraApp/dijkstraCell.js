@@ -33,10 +33,23 @@ export default class DijkstraCell extends React.Component {
     }
   }
 
+
+
   render() {
     var path = "/".concat("",this.props.pathName)
+    const myStyle = {
+      padding: "1px 1px !important"
+    };
+
     return (
-      <td id={this.props.id} data-row={this.props.row} data-col={this.props.col} className={this.props.initClass} onMouseOver={this.handleEvent} onClick={this.handleClick}>
+      <td
+        style={this.myStyle}
+        id={this.props.id}
+        data-row={this.props.row}
+        data-col={this.props.col}
+        className={this.props.initClass}
+        onMouseOver={this.handleEvent}
+        onClick={this.handleClick}>
       </td>
     );
   }
