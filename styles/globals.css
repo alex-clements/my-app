@@ -51,8 +51,8 @@ a {
 
 .ui.table tr.start,
 .ui.table td.start {
-  background: #FFA18A !important;
-  color: #FFA18A !important;
+  background: #eb5a46 !important;
+  color: #eb5a46 !important;
 }
 
 /*--------------
@@ -61,14 +61,8 @@ a {
 
 .ui.table tr.end,
 .ui.table td.end {
-  -webkit-box-shadow: 0px 0px 0px #FFCD69 inset;
-  box-shadow: 0px 0px 0px #FFCD69 inset;
-}
-
-.ui.table tr.end,
-.ui.table td.end {
-  background: #FFCD69 !important;
-  color: #FFCD69 !important;
+  background: #957DAD !important;
+  color: #957DAD !important;
 }
 
 /*--------------
@@ -93,6 +87,25 @@ a {
   100% {
     background-color: #B4F8C8;
   }
+}
+
+/*--------------
+     Algorithm Fill
+---------------*/
+
+.ui.table tr.algoFill,
+.ui.table td.algoFill {
+  animation: algoFillAnimation .1s forwards;
+}
+
+@keyframes algoFillAnimation {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: #fffdb7;
+  }
+
 }
 
 .ui[class*="very compact"].table th {

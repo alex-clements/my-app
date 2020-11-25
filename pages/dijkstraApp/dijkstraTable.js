@@ -31,9 +31,13 @@ export default class DijkstraTable extends React.Component {
   }
 
   handleCellChange(e, row, col) {
-    var table2 = this.state.table;
+
+    var table2 = this.state.pathPresent ? JSON.parse(JSON.stringify(this.state.tableCopy)) : this.state.table;
+    this.state.pathPresent ? this.setState({pathPresent: false}) : null;
+
     var startLocation = this.state.startLocation;
     var endLocation = this.state.endLocation;
+
     if (e == 'start') {
       if (startLocation == null) {
         this.setState({startLocation: [row,col]});
@@ -74,7 +78,7 @@ export default class DijkstraTable extends React.Component {
       tableRows.push(rowValues);
       rowValues = [];
     };
-    this.setState({table: tableRows, startLocation: null, endLocation: null});
+    this.setState({table: tableRows, startLocation: null, endLocation: null, pathPresent: false});
   }
 
   updateGrid(table, shortestPath, visitedArray, startLocation, endLocation, tableCopy) {
@@ -88,9 +92,9 @@ export default class DijkstraTable extends React.Component {
       if(pathNode != startNode && pathNode != endNode) {
         xCoordinate = Number(pathNode.slice(0,2));
         yCoordinate = Number(pathNode.slice(2,4));
-        table[xCoordinate][yCoordinate]['initClass'] = 'negative';
+        table[xCoordinate][yCoordinate]['initClass'] = 'algoFill';
         setTimeout(function(){
-          updateNodes(pathNode,'negative');
+          updateNodes(pathNode,'algoFill');
         }, maxIndex * 1);
 
       maxIndex += 1;
@@ -136,8 +140,6 @@ export default class DijkstraTable extends React.Component {
   }
 
   runDijkstra(myGraph, startNode, endNode) {
-
-    console.log(typeof(myGraph) != 'object');
 
     class PriorityQueue {
       constructor() {
@@ -245,6 +247,7 @@ export default class DijkstraTable extends React.Component {
       for (var j=0; j<table[0].length; j++) {
         table[i][j+1] ? table[i][j]['initClass'] != 'wall' && table[i][j+1]['initClass'] != 'wall' ? myGraph.addEdge(table[i][j]['id'],table[i][j+1]['id'],1) : null : null;
         table[i+1] ? table[i][j]['initClass'] != 'wall' && table[i+1][j]['initClass'] != 'wall' ? myGraph.addEdge(table[i][j]['id'],table[i+1][j]['id'],1) : null : null;
+        //table[i+1] ? table[i+1][j+1] ? table[i][j]['initClass'] != 'wall' && table[i+1][j+1]['initClass'] != 'wall' ? myGraph.addEdge(table[i][j]['id'],table[i+1][j+1]['id'],1) : null : null : null;
       }
     }
     return myGraph;
@@ -279,12 +282,12 @@ export default class DijkstraTable extends React.Component {
 
     return (
       <div>
-      <div className='ui center aligned container'>
+      <div className='ui fluid buttons center aligned container'>
         <button className="ui button" onClick={this.onStartButton}>Set Start</button>
         <button className="ui button" onClick={this.onEndButton}>Set End</button>
         <button className="ui button" onClick={this.onWallsButton}>Draw Walls</button>
         <button className="ui primary button" onClick={this.onRunButton}>Run</button>
-        <button className="ui button" value="clear" onClick={this.handleClear}>Clear</button>
+        <button className="ui button red basic" value="clear" onClick={this.handleClear}>Clear</button>
     </div>
       <div className='ui horizonal divider'></div>
       <table className='ui celled table very compact unstackable'>
