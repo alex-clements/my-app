@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import styles from '../../styles/Home.module.css'
 
 export default class TestCard extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export default class TestCard extends React.Component {
     else {
       return (
         <Link href={path}>
-          <a className="blue ui card" >
+          <a className={"blue ui card " + styles.fadeInAnimation} >
             <div className="image">
               <img src={this.props.imageSource} />
             </div>
