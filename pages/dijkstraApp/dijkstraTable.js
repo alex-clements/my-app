@@ -254,12 +254,14 @@ export default class DijkstraTable extends React.Component {
   }
 
   onRunButton() {
-    var shortestPath;
-    var visitedArray;
-    var tableVar = this.state.table.slice();
-    var tableCopy = JSON.parse(JSON.stringify(this.state.table));
-    [shortestPath, visitedArray] = this.handleRunButton([tableVar, this.state.startLocation, this.state.endLocation]);
-    shortestPath ? this.updateGrid(tableVar, shortestPath, visitedArray, this.state.startLocation, this.state.endLocation, tableCopy) : null;
+    if (this.state.pathPresent != true){
+      var shortestPath;
+      var visitedArray;
+      var tableVar = this.state.table.slice();
+      var tableCopy = JSON.parse(JSON.stringify(this.state.table));
+      [shortestPath, visitedArray] = this.handleRunButton([tableVar, this.state.startLocation, this.state.endLocation]);
+      shortestPath ? this.updateGrid(tableVar, shortestPath, visitedArray, this.state.startLocation, this.state.endLocation, tableCopy) : null;
+    }  
   }
 
   onStartButton() {
