@@ -5,26 +5,15 @@ import styles from '../../styles/Home.module.css'
 export default class TestCard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {isLoading: true}
-  }
-
-  componentDidMount() {
-    this.setState({isLoading: false})
   }
 
   render() {
     var path = "/".concat("",this.props.pathName)
-    if (this.state.isLoading) {
-      return (
-        <div class="ui active centered inline loader"></div>
-      );
-    }
-    else {
       return (
         <Link href={path}>
           <a className={"blue ui card " + styles.fadeInAnimation} >
             <div className="image">
-              <img src={this.props.imageSource} />
+              <img height="121px" src={this.props.imageSource} />
             </div>
             <div className="content">
               <div className="header">{this.props.title}</div>
@@ -38,6 +27,4 @@ export default class TestCard extends React.Component {
           </a>
         </Link>);
     }
-
-  }
 };
