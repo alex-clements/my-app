@@ -4,6 +4,7 @@ import 'semantic-ui-css/semantic.css'
 import DijkstraApp from './dijkstraApp/dijkstraApp.js'
 import NavBar from './components/navBar.js'
 
+
 export default function DijkstraMethod() {
   return (
     <div className={styles.container}>
