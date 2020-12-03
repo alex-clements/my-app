@@ -158,3 +158,14 @@ animation: fadeIn ease 1s;
 .noHeight {
   height: 0px;
 }
+
+.tablePaddingWidth {
+  width: 90vw;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 900px;
+}
+
+.tableDisableTouch {
+  touch-action: none;
+}
