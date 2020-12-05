@@ -23,21 +23,22 @@ export default class DijkstraCell extends React.Component {
   }
 
   handleTouch(e) {
-    console.log(document.elementFromPoint(e.targetTouches[0].clientX, e.targetTouches[0].clientY).nodeName);
     var elem = document.elementFromPoint(e.targetTouches[0].clientX, e.targetTouches[0].clientY);
-    if (elem.nodeName == "TD") {
-      var elemRow = parseInt(elem.id.slice(0,2));
-      var elemCol = parseInt(elem.id.slice(2,4));
-      if (this.props.selectMethod == 'walls'){
-        this.props.onCellUpdate('wall', elemRow, elemCol);
-      }
-      else if (this.props.selectMethod == 'start'){
-        this.props.onCellUpdate('start', elemRow, elemCol);
-      }
-      else if (this.props.selectMethod == 'end'){
-        this.props.onCellUpdate('end', elemRow, elemCol);
+    if (elem) {
+      if (elem.nodeName == "TD") {
+        var elemRow = parseInt(elem.id.slice(0,2));
+        var elemCol = parseInt(elem.id.slice(2,4));
+        if (this.props.selectMethod == 'walls'){
+          this.props.onCellUpdate('wall', elemRow, elemCol);
+        }
+        else if (this.props.selectMethod == 'start'){
+          this.props.onCellUpdate('start', elemRow, elemCol);
+        }
+        else if (this.props.selectMethod == 'end'){
+          this.props.onCellUpdate('end', elemRow, elemCol);
+        };
       };
-    };
+    }
   }
 
   handleClick() {
@@ -55,7 +56,7 @@ export default class DijkstraCell extends React.Component {
   render() {
     var path = "/".concat("",this.props.pathName)
     const myStyle = {
-      padding: "1px 1px !important"
+      padding: "1px 1px"
     };
 
     return (

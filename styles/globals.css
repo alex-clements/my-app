@@ -108,16 +108,6 @@ a {
 
 }
 
-.ui[class*="very compact"].table th {
-  padding-left: 0.1em;
-  padding-right: 0.1em;
-}
-
-.ui[class*="very compact"].table td {
-  padding: 0.1em 0.1em;
-  width: 1vw;
-}
-
 table {
   user-drag: none;
   user-select: none;

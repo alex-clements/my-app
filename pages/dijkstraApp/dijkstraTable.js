@@ -278,26 +278,29 @@ export default class DijkstraTable extends React.Component {
   }
 
   render() {
+
     var table = this.state.table.map((row, index) =>
     <tr key={index}>
       {row.map((id) => <DijkstraCell selectMethod={this.state.selectMethod} id={id.id} key={id.id} row={id.row} col={id.col} initClass={id.initClass} onCellUpdate={this.handleCellChange} />)}
     </tr>);
 
     return (
-      <div className={styles.tablePaddingWidth}>
-      <div className='ui fluid buttons center aligned container stackable'>
-        <button className="ui button" onClick={this.onStartButton}>Set Start</button>
-        <button className="ui button" onClick={this.onEndButton}>Set End</button>
-        <button className="ui button" onClick={this.onWallsButton}>Draw Walls</button>
-        <button className="ui primary button" onClick={this.onRunButton}>Run</button>
-        <button className="ui button red basic" value="clear" onClick={this.handleClear}>Clear</button>
-    </div>
-      <div className='ui horizonal divider'></div>
-      <table className={styles.tableDisableTouch + ' ui celled table very compact unstackable'}>
-        <tbody>
-            { table }
-        </tbody>
-      </table>
+      <div>
+        <div className='ui fluid center aligned container stackable'>
+          <button style={{"margin-bottom":"0.25em"}} className="ui button" onClick={this.onStartButton}>Set Start</button>
+          <button className="ui button" onClick={this.onEndButton}>Set End</button>
+          <button className="ui button" onClick={this.onWallsButton}>Draw Walls</button>
+          <button className="ui primary button" onClick={this.onRunButton}>Run</button>
+          <button className="ui button red basic" value="clear" onClick={this.handleClear}>Clear</button>
+        </div>
+        <div className='ui horizonal divider'></div>
+        <div style={{height:"400px"}} className=''>
+          <table className={styles.tableDisableTouch + ' ui celled table unstackable very compact'}>
+            <tbody>
+                { table }
+            </tbody>
+          </table>
+      </div>
     </div>
     );
   }

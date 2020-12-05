@@ -11,7 +11,7 @@ export default class TestCard extends React.Component {
     var path = "/".concat("",this.props.pathName)
       return (
         <Link href={path}>
-          <a className={"blue ui card " + styles.fadeInAnimation} >
+          <a className={"ui card " + styles.fadeInAnimation} >
             <div className="image">
               <img height="121px" src={this.props.imageSource} />
             </div>
