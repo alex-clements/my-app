@@ -8,9 +8,7 @@ export default class DijkstraApp extends React.Component {
 
   render() {
     return (
-      <div>
         <DijkstraTable />
-      </div>
     );
   }
 };

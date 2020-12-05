@@ -1,5 +1,6 @@
 import React from 'react'
 import DijkstraCell from './dijkstraCell.js'
+import styles from '../../styles/Home.module.css'
 
 export default class DijkstraTable extends React.Component {
   constructor(props) {
@@ -261,7 +262,7 @@ export default class DijkstraTable extends React.Component {
       var tableCopy = JSON.parse(JSON.stringify(this.state.table));
       [shortestPath, visitedArray] = this.handleRunButton([tableVar, this.state.startLocation, this.state.endLocation]);
       shortestPath ? this.updateGrid(tableVar, shortestPath, visitedArray, this.state.startLocation, this.state.endLocation, tableCopy) : null;
-    }  
+    }
   }
 
   onStartButton() {
@@ -277,26 +278,29 @@ export default class DijkstraTable extends React.Component {
   }
 
   render() {
+
     var table = this.state.table.map((row, index) =>
     <tr key={index}>
       {row.map((id) => <DijkstraCell selectMethod={this.state.selectMethod} id={id.id} key={id.id} row={id.row} col={id.col} initClass={id.initClass} onCellUpdate={this.handleCellChange} />)}
     </tr>);
 
     return (
-      <div>
-      <div className='ui fluid buttons center aligned container'>
-        <button className="ui button" onClick={this.onStartButton}>Set Start</button>
-        <button className="ui button" onClick={this.onEndButton}>Set End</button>
-        <button className="ui button" onClick={this.onWallsButton}>Draw Walls</button>
-        <button className="ui primary button" onClick={this.onRunButton}>Run</button>
-        <button className="ui button red basic" value="clear" onClick={this.handleClear}>Clear</button>
-    </div>
-      <div className='ui horizonal divider'></div>
-      <table className='ui celled table very compact unstackable'>
-        <tbody>
-            { table }
-        </tbody>
-      </table>
+      <div className="ui container">
+        <div className='ui fluid center aligned container stackable'>
+          <button style={{"marginBottom":"0.25em"}} className="ui button" onClick={this.onStartButton}>Set Start</button>
+          <button className="ui button" onClick={this.onEndButton}>Set End</button>
+          <button className="ui button" onClick={this.onWallsButton}>Draw Walls</button>
+          <button className="ui primary button" onClick={this.onRunButton}>Run</button>
+          <button className="ui button red basic" value="clear" onClick={this.handleClear}>Clear</button>
+        </div>
+        <div className='ui horizonal divider'></div>
+        <div style={{height:"400px"}} className=''>
+          <table style={{margin: "0 auto"}} className={styles.tableDisableTouch + ' ui celled table unstackable'}>
+            <tbody>
+                { table }
+            </tbody>
+          </table>
+      </div>
     </div>
     );
   }
