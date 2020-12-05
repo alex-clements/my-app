@@ -20,8 +20,8 @@ export default class DijkstraTable extends React.Component {
     var tableRows = [];
     var rowValues = [];
     var i, j, myString
-    for (i=0;i<40;i++) {
-      for (j=0; j<30; j++) {
+    for (i=0;i<50;i++) {
+      for (j=0; j<50; j++) {
         myString = i.toString().padStart(2,"0") + j.toString().padStart(2,"0")
         rowValues.push({id: myString, row: i, col: j, initClass: ''});
       };
@@ -71,8 +71,8 @@ export default class DijkstraTable extends React.Component {
     var i;
     var j;
     var myString;
-    for (i=0;i<40;i++) {
-      for (j=0; j<30; j++) {
+    for (i=0;i<50;i++) {
+      for (j=0; j<50; j++) {
         myString = i.toString().padStart(2,"0") + j.toString().padStart(2,"0")
         rowValues.push({id: myString, row: i, col: j, initClass: ''});
       };
