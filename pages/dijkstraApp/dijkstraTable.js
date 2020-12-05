@@ -287,7 +287,7 @@ export default class DijkstraTable extends React.Component {
     return (
       <div className="ui container">
         <div className='ui fluid center aligned container stackable'>
-          <button style={{"margin-bottom":"0.25em"}} className="ui button" onClick={this.onStartButton}>Set Start</button>
+          <button style={{"marginBottom":"0.25em"}} className="ui button" onClick={this.onStartButton}>Set Start</button>
           <button className="ui button" onClick={this.onEndButton}>Set End</button>
           <button className="ui button" onClick={this.onWallsButton}>Draw Walls</button>
           <button className="ui primary button" onClick={this.onRunButton}>Run</button>
@@ -295,7 +295,7 @@ export default class DijkstraTable extends React.Component {
         </div>
         <div className='ui horizonal divider'></div>
         <div style={{height:"400px"}} className=''>
-          <table className={styles.tableDisableTouch + ' ui celled table unstackable very compact'}>
+          <table style={{margin: "0 auto"}} className={styles.tableDisableTouch + ' ui celled table unstackable'}>
             <tbody>
                 { table }
             </tbody>

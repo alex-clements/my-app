@@ -55,13 +55,10 @@ export default class DijkstraCell extends React.Component {
 
   render() {
     var path = "/".concat("",this.props.pathName)
-    const myStyle = {
-      padding: "1px 1px"
-    };
 
     return (
       <td
-        style={this.myStyle}
+        style={{padding: ".1em .1em"}}
         id={this.props.id}
         data-row={this.props.row}
         data-col={this.props.col}
