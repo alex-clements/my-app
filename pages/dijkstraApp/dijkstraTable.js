@@ -285,7 +285,7 @@ export default class DijkstraTable extends React.Component {
     </tr>);
 
     return (
-      <div>
+      <div className="ui container">
         <div className='ui fluid center aligned container stackable'>
           <button style={{"margin-bottom":"0.25em"}} className="ui button" onClick={this.onStartButton}>Set Start</button>
           <button className="ui button" onClick={this.onEndButton}>Set End</button>
